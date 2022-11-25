@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ForecastWeather</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="~/images/w4.png" alt="LOGO" width="55" height="50" />
+                <a class="navbar-brand"> Forecast Weather </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a asp-action="SearchCity">Home</a></li>
+                <li><a href="https://aex.dev.azure.com/me?mkt=en-US" target="_blank"> Azure </a></li>
+                <li><a href="https://github.com/MaziarCenCol" target="_blank"> GitHub </a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container body-content">
+        <div style="text-align: center">
+            <h2>
+                Comp306_003 Group_6 Project: Weather Forecast
+            </h2>
+        </div>
+        <hr>
+        <br />
+        @RenderBody()
+        <br />
+        <hr>
+    </div>
+
+    <footer style="padding:10px; color: gray; text-align:center; bottom: 0; position:fixed">
+        &copy;Copyright: Group 6, Comp306-003 - Fall 2022 - Powered by OpenWeatherMap.api
+    </footer>
+
+</body>
+
+</html>
