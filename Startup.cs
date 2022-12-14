@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ForecastApp.Repositories;
+using WeatherApp.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ForecastApp
+namespace WeatherApp
 {
     public class Startup
     {
@@ -32,8 +32,8 @@ namespace ForecastApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            // Register Forecast repository
-            services.AddScoped<IForecastRepository, ForecastRepository>();
+            // Register Weather repository
+            services.AddScoped<IWeatherRepository, WeatherRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -59,7 +59,7 @@ namespace ForecastApp
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=ForecastApp}/{action=SearchCity}/{id?}");
+                    template: "{controller=WeatherApp}/{action=SearchCity}/{id?}");
             });
         }
     }

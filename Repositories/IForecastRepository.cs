@@ -1,13 +1,13 @@
-﻿using ForecastApp.OpenWeatherMapModels;
+﻿using WeatherApp.OpenWeatherMapModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ForecastApp.Repositories
+namespace WeatherApp.Repositories
 {
-    public interface IForecastRepository
+    public interface IWeatherRepository
     {
-        WeatherResponse GetForecast(string city);
+        WeatherResponse GetWeather(string city);
     }
 }

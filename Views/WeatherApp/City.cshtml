@@ -1,4 +1,4 @@
-﻿@model ForecastApp.ForecastAppModels.City
+﻿@model WeatherApp.WeatherAppModels.City
 
 @{
     ViewData["Title"] = "City";
@@ -10,7 +10,7 @@
 
         <div class="form-group col-md-offset-3 col-md-5" style="padding: 25px; background-color:aliceblue">
 
-            <h2>Forecast for the selected city</h2>
+            <h2>Weather for the selected city</h2>
 
             <label asp-for="Name"></label>
             <span class="badge">@Model.Name</span>
@@ -44,7 +44,7 @@
         <div class="form-group col-md-offset-3 col-md-5">
 
             <form method="get">
-                <button asp-controller="ForecastApp" asp-action="SearchCity" class="btn btn-success">Return</button>
+                <button asp-controller="WeatherApp" asp-action="SearchCity" class="btn btn-success">Return</button>
             </form>
 
         </div>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ForecastApp.Config
+namespace WeatherApp.Config
 {
     // name=maziar-api-weather, key=a10fb02279458d8a927d40755eb7170d
 

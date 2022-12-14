@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ForecastApp.Config;
-using ForecastApp.OpenWeatherMapModels;
+using WeatherApp.Config;
+using WeatherApp.OpenWeatherMapModels;
 using Newtonsoft.Json;
 using RestSharp;
 using Newtonsoft.Json.Linq;
 
-namespace ForecastApp.Repositories
+namespace WeatherApp.Repositories
 {
-    public class ForecastRepository : IForecastRepository
+    public class WeatherRepository : IWeatherRepository
     {
-        WeatherResponse IForecastRepository.GetForecast(string city)
+        WeatherResponse IWeatherRepository.GetWeather(string city)
         {
             string IDOWeather = Constants.OPEN_WEATHER_APPID;
             var client = new RestClient($"http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&APPID={IDOWeather}");

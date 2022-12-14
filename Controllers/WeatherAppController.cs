@@ -2,46 +2,46 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ForecastApp.ForecastAppModels;
-using ForecastApp.OpenWeatherMapModels;
-using ForecastApp.Repositories;
+using WeatherApp.WeatherAppModels;
+using WeatherApp.OpenWeatherMapModels;
+using WeatherApp.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ForecastApp.Controllers
+namespace WeatherApp.Controllers
 {
-    public class ForecastAppController : Controller
+    public class WeatherAppController : Controller
     {
-        private readonly IForecastRepository _forecastRepository;
+        private readonly IWeatherRepository _WeatherRepository;
 
         // Dependency Injection
-        public ForecastAppController(IForecastRepository forecastAppRepo)
+        public WeatherAppController(IWeatherRepository WeatherAppRepo)
         {
-            _forecastRepository = forecastAppRepo;
+            _WeatherRepository = WeatherAppRepo;
         }
 
-        // GET: ForecastApp/SearchCity
+        // GET: WeatherApp/SearchCity
         public IActionResult SearchCity()
         {
             var viewModel = new SearchCity();
             return View(viewModel);
         }
 
-        // POST: ForecastApp/SearchCity
+        // POST: WeatherApp/SearchCity
         [HttpPost]
         public IActionResult SearchCity(SearchCity model)
         {
             // If the model is valid, consume the Weather API to bring the data of the city
             if (ModelState.IsValid) {
-                return RedirectToAction("City", "ForecastApp", new { city = model.CityName });
+                return RedirectToAction("City", "WeatherApp", new { city = model.CityName });
             }
             return View(model);
         }
 
-        // GET: ForecastApp/City
+        // GET: WeatherApp/City
         public IActionResult City(string city)
         {
-            // Consume the OpenWeatherAPI in order to bring Forecast data in our page.
-            WeatherResponse weatherResponse = _forecastRepository.GetForecast(city);
+            // Consume the OpenWeatherAPI in order to bring Weather data in our page.
+            WeatherResponse weatherResponse = _WeatherRepository.GetWeather(city);
             City viewModel = new City();
 
             if (weatherResponse != null)
